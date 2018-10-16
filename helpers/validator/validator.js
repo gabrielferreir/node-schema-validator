@@ -61,7 +61,10 @@ function validateObject(params, schema, heritage) {
     });
 }
 
-
+/**
+ * Funções de validação
+ * @type {{required: validators.required, minLength: validators.minLength, type: validators.type, min: validators.min, max: validators.max, childs: validators.childs, simpleChild: validators.simpleChild, Function: validators.Function}}
+ */
 validators = {
     required: request => {
         if (!request.param && request.valueProperty === true) {
@@ -125,5 +128,14 @@ validators = {
     },
     Function: request => {
         request.valueProperty(request.param)
+    },
+    pattern: request => {
+        const regExp = new RegExp(request.valueProperty);
+        if (!regExp.test(request.param)) {
+            return {
+                message: `${request.key} is not acceptable for regExp${request.valueProperty}`,
+                type: 'pattern'
+            }
+        }
     }
 };

@@ -1,4 +1,4 @@
-const Validator = require('../helpers/validator/validator2');
+const Validator = require('../helpers/validator/validator');
 
 module.exports = {
     create
@@ -53,9 +53,10 @@ async function create(req, res, next) {
                 type: Array,
                 simpleChild: {
                     minLength: 20,
-                    Function: (x) => {
-                        console.log(`Nome: ${x}`);
-                    }
+                    // Function: (x) => {
+                    //     console.log(`Nome: ${x}`);
+                    // }
+                    pattern: /gabriel/g
                 }
             }
         };
