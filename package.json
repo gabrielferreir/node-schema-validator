@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A package for objects validations using javascript",
   "main": "./lib/scope.js",
-  "author": "Gabriel Ferreira <>",
+  "author": "Gabriel Ferreira <gabrielferrer@outlook.com.br>",
   "license": "MIT",
   "repository": {
       "type": "git",
