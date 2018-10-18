@@ -6,9 +6,9 @@ A package for objects validations using javascript.
 /* On your controller */
 
 const params = {
-    companyName: 'SMN',
+    companyName: 'GitHub',
     contributors: 100,
-    listOfContributors: ['smn1', 'smn2', 'smn3']
+    listOfContributors: ['people1', 'people2', 'people3']
 };
 
 try {
@@ -33,7 +33,7 @@ async function isValid(params) {
             required: true,
             type: String,
             maxLength: 40,
-            minLength: 3
+            minLength: 6
         },
         contributors: {
             required: true,
@@ -110,7 +110,7 @@ const validation = {
     }
 }
 ```
-### isCpf: true
+### isEmail: true
 When it should be a valid Email.
 e.g.:
 ```js
@@ -125,7 +125,7 @@ When the property is an Array of objects that each item should be also validated
 e.g.:
 ```js
 const validation = {
-    usuarios: {
+    users: {
         type: Array
         items: {
             firstName: {
