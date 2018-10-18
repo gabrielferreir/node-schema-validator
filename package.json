@@ -1,6 +1,21 @@
 {
-  "name": "shcema-validator",
-  "version": "0.0.0",
-  "private": true,
+  "name": "schema-validator",
+  "version": "1.0.0",
+  "description": "A package for objects validations using javascript",
+  "main": "./lib/scope.js",
+  "author": "Gabriel Ferreira <>",
+  "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gabrielferreir/schema-validator.git"
+  },
+  "keywords": [
+      "smn",
+      "scope"
+  ],
+  "bugs": {
+      "url": "https://github.com/gabrielferreir/schema-validator/issues"
+  },
+  "homepage": "https://github.com/gabrielferreir/schema-validator#readme",
   "dependencies": {}
 }
