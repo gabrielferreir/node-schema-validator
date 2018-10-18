@@ -1,4 +1,4 @@
-# schema-validator
+# node-schema-validator
 A package for objects validations using javascript.
 
 (Works only with Node 7 or superior)
@@ -21,7 +21,7 @@ try {
 ```js
 /* On your scope */
 
-const Scope = require('schema-validator');
+const Scope = require('node-schema-validator');
 
 module.exports = {
     isValid
@@ -64,7 +64,7 @@ async function isValid(params) {
 ## Installation
 
 ```bash
-$ npm install schema-validator
+$ npm install node-schema-validator
 ```
 ## How it works
 

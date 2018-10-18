@@ -7,15 +7,15 @@
   "license": "MIT",
   "repository": {
       "type": "git",
-      "url": "git+https://github.com/gabrielferreir/schema-validator.git"
+      "url": "git+https://github.com/gabrielferreir/node-schema-validator.git"
   },
   "keywords": [
       "schema",
       "validator"
   ],
   "bugs": {
-      "url": "https://github.com/gabrielferreir/schema-validator/issues"
+      "url": "https://github.com/gabrielferreir/node-schema-validator/issues"
   },
-  "homepage": "https://github.com/gabrielferreir/schema-validator#readme",
+  "homepage": "https://github.com/gabrielferreir/node-schema-validator#readme",
   "dependencies": {}
 }
