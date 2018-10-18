@@ -1,5 +1,5 @@
 {
-  "name": "schema-validator",
+  "name": "node-schema-validator",
   "version": "1.0.0",
   "description": "A package for objects validations using javascript",
   "main": "./lib/scope.js",
@@ -7,15 +7,17 @@
   "license": "MIT",
   "repository": {
       "type": "git",
-      "url": "git+https://github.com/gabrielferreir/schema-validator.git"
+      "url": "git+https://github.com/gabrielferreir/node-schema-validator.git"
   },
   "keywords": [
+      "node",
       "schema",
-      "validator"
+      "validator",
+      "api"
   ],
   "bugs": {
-      "url": "https://github.com/gabrielferreir/schema-validator/issues"
+      "url": "https://github.com/gabrielferreir/node-schema-validator/issues"
   },
-  "homepage": "https://github.com/gabrielferreir/schema-validator#readme",
+  "homepage": "https://github.com/gabrielferreir/node-schema-validator#readme",
   "dependencies": {}
 }
