@@ -10,8 +10,8 @@
       "url": "git+https://github.com/gabrielferreir/schema-validator.git"
   },
   "keywords": [
-      "smn",
-      "scope"
+      "schema",
+      "validator"
   ],
   "bugs": {
       "url": "https://github.com/gabrielferreir/schema-validator/issues"
