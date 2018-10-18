@@ -137,5 +137,91 @@ validators = {
                 type: 'pattern'
             }
         }
+    },
+    isEqual: request => {
+        if (Array.isArray(request.valueProperty) && !request.valueProperty.filter(item => item === request.param).length) {
+            return {
+                message: `${request.key} is not equal [${request.valueProperty.join(', ')}]`,
+                type: 'isEqual'
+            }
+        } else if (!Array.isArray(request.valueProperty) && request.param !== request.valueProperty) {
+            return {
+                message: `${request.key} is not equal ${request.valueProperty}`,
+                type: 'isEqual'
+            }
+        }
+    },
+    isCpf: request => {
+        if (request.param && request.valueProperty === true) {
+            let Soma;
+            let Resto;
+            Soma = 0;
+            const invalid = {
+                message: `${request.key} it's not a cpf`,
+                type: 'isCPF'
+            };
+            if (request.param === '00000000000') return invalid;
+            for (i = 1; i <= 9; i++) Soma = Soma + parseInt(request.param.substring(i - 1, i)) * (11 - i);
+            Resto = (Soma * 10) % 11;
+            if ((Resto === 10) || (Resto === 11)) Resto = 0;
+            if (Resto !== parseInt(request.param.substring(9, 10))) return invalid;
+            Soma = 0;
+            for (i = 1; i <= 10; i++) Soma = Soma + parseInt(request.param.substring(i - 1, i)) * (12 - i);
+            Resto = (Soma * 10) % 11;
+            if ((Resto === 10) || (Resto === 11)) Resto = 0;
+            if (Resto !== parseInt(request.param.substring(10, 11))) return invalid;
+        }
+    },
+    isCnpj: request => {
+
+        if (request.param && request.valueProperty === true) {
+
+            const invalid = {
+                message: `${request.key} it's not a cnpj`,
+                type: 'isCNPJ'
+            };
+
+            if (request.param.length !== 14)
+                return invalid;
+
+            let tamanho = request.param.length - 2;
+            let numeros = request.param.substring(0, tamanho);
+            let digitos = request.param.substring(tamanho);
+            let soma = 0;
+            let pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado.toString() !== digitos.charAt(0))
+                return invalid;
+
+            tamanho = tamanho + 1;
+            numeros = request.param.substring(0, tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado.toString() !== digitos.charAt(1))
+                return invalid;
+        }
+
+    },
+    isUrl: request => {
+    },
+    isEmail: request => {
+
+    },
+    isHEX: request => {
+
+    },
+    isBase64: request => {
+
     }
 };
