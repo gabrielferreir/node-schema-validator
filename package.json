@@ -1,23 +1,31 @@
 {
-    "name": "node-schema-validator",
-    "version": "1.0.1",
-    "description": "A package for objects validations using javascript",
-    "main": "./lib/scope.js",
-    "author": "Gabriel Ferreira <gabrielferrer@outlook.com.br>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/gabrielferreir/node-schema-validator.git"
-    },
-    "keywords": [
-        "node",
-        "schema",
-        "validator",
-        "api"
-    ],
-    "bugs": {
-        "url": "https://github.com/gabrielferreir/node-schema-validator/issues"
-    },
-    "homepage": "https://github.com/gabrielferreir/node-schema-validator#readme",
-    "dependencies": {}
+  "name": "node-schema-validator",
+  "version": "1.0.0",
+  "description": "A package for objects validations using javascript",
+  "main": "./lib/scope.js",
+  "scripts": {
+    "build": "node_modules/.bin/tsc && node dist/test.js",
+    "test": "jasmine-node ./spec"
+  },
+  "author": "Gabriel Ferreira <gabrielferrer@outlook.com.br>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielferreir/node-schema-validator.git"
+  },
+  "keywords": [
+    "node",
+    "schema",
+    "validator",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/gabrielferreir/node-schema-validator/issues"
+  },
+  "homepage": "https://github.com/gabrielferreir/node-schema-validator#readme",
+  "devDependencies": {
+    "jasmine-node": "^1.16.2",
+    "typescript": "^2.0.6"
+  },
+  "dependencies": {}
 }
