@@ -21,7 +21,7 @@ export default class Scope {
 
     public validate(params: any, schema: any, heritage: string) {
         if (Array.isArray(params))
-            params.forEach((obj, index) => this.validateObject(obj, schema, `${heritage}(${index})`));
+            params.forEach((obj, index) => this.validateObject(obj, schema, `${heritage}[${index}]`));
         else
             this.validateObject(params, schema, heritage);
 
