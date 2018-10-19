@@ -4,7 +4,7 @@
   "description": "A package for objects validations using javascript",
   "main": "./lib/scope.js",
   "scripts": {
-    "build": "node_modules/.bin/tsc && node dist/test.js",
+    "build": "node_modules/.bin/tsc",
     "test": "jasmine-node ./spec"
   },
   "author": "Gabriel Ferreira <gabrielferrer@outlook.com.br>",

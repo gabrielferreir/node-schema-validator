@@ -1,4 +1,4 @@
-const Validators = require('../dist/validators');
+const Validators = require('../lib/validators');
 
 describe('Validators functions', () => {
 
@@ -165,7 +165,99 @@ describe('Validators functions', () => {
             })).toEqual()
         });
 
-    })
+    });
 
+    describe('Pattern', () => {
+
+        it('Pattern with matches', () => {
+            expect(Validators.default.pattern({
+                key: 'haveNumbers',
+                property: /(\d)/g,
+                value: 'Test123'
+            })).toEqual()
+        });
+
+        it('Pattern without matches', () => {
+            expect(Validators.default.pattern({
+                key: 'haveNumbers',
+                property: /(\d)/g,
+                value: 'Test'
+            })).toEqual({
+                message: `haveNumbers is not acceptable for regExp /(\\d)/g`,
+                type: 'pattern',
+                attribute: 'haveNumbers'
+            })
+        })
+
+    });
+
+    describe('isEqual', () => {
+
+        it('String is not equal', () => {
+            expect(Validators.default.isEqual({
+                key: 'genre',
+                property: 'M',
+                value: 'F'
+            })).toEqual({
+                message: 'genre is not equal M',
+                type: 'isEqual',
+                attribute: 'genre'
+            })
+        });
+
+        it('String is not equal', () => {
+            expect(Validators.default.isEqual({
+                key: 'genre',
+                property: 'M',
+                value: 'M'
+            })).toEqual()
+        });
+
+        it('String inside array', () => {
+            expect(Validators.default.isEqual({
+                key: 'genre',
+                property: ['M', 'W'],
+                value: 'M'
+            })).toEqual()
+        });
+
+        it('String outside array', () => {
+            expect(Validators.default.isEqual({
+                key: 'genre',
+                property: ['M', 'W'],
+                value: 'X'
+            })).toEqual({
+                message: 'genre is not equal [M, W]',
+                type: 'isEqual',
+                attribute: 'genre'
+            })
+        });
+
+    });
+
+    describe('isCpf', () => {
+
+        it('valid', () => {
+            expect(Validators.default.isCpf({
+                key: 'cpf',
+                property: true,
+                value: '07962961031'
+            })).toEqual()
+        });
+
+        it('invalid', () => {
+            expect(Validators.default.isCpf({
+                key: 'cpf',
+                property: true,
+                value: '07962961032'
+            })).toEqual({
+                message: 'cpf it\'s not a cpf',
+                type: 'isCpf',
+                attribute: 'cpf'
+            })
+
+        });
+
+    });
 
 });
