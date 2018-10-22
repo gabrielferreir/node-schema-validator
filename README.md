@@ -2,7 +2,7 @@
 A package for objects validations using javascript.
 
 
-##Demo
+## Demo
 
 ```js
 const {Scope, InvalidParam} = require('node-schema-validator');
@@ -98,7 +98,7 @@ try {
 }
 ```
 
-##Response exemplo
+## Response exemplo
 
 ```js
 [
@@ -110,7 +110,7 @@ try {
 ]
 ```
 
-##Functions
+## Functions
 
 #### Required
 #### minSize
