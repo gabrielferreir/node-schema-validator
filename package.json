@@ -2,7 +2,7 @@
   "name": "node-schema-validator",
   "version": "1.0.0",
   "description": "A package for objects validations using javascript",
-  "main": "./lib/scope.js",
+  "main": "./index.js",
   "scripts": {
     "build": "node_modules/.bin/tsc",
     "test": "jasmine-node ./spec"
