@@ -89,7 +89,7 @@ try {
         },
     };
 
-    const errors = schema.init(params, scope);
+    const errors = schema.isValid(params, scope);
 
 } catch (err) {
     if (err instanceof InvalidParam) {

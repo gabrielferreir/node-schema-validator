@@ -12,7 +12,7 @@ export default class Scope {
         this.errors = [];
     }
 
-    public init(params: any, schema: any) {
+    public isValid(params: any, schema: any) {
         const response = this.validate(params, schema, null);
         if (response)
             throw new InvalidParam(response);
