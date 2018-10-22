@@ -19,8 +19,11 @@ export default class Scope {
         return response
     }
 
-    public validate(params: any, schema: any, heritage: string) {
-        if (Array.isArray(params))
+    public validate(params: any, schema: any, heritage: string, isArray?: boolean) {
+        if(!Array.isArray(params) && isArray)
+            params = [];
+
+        if (Array.isArray(params) && isArray)
             params.forEach((obj, index) => this.validateObject(obj, schema, `${heritage}[${index}]`));
         else
             this.validateObject(params, schema, heritage);
@@ -42,7 +45,7 @@ export default class Scope {
                 });
             })
         } else if (name === 'childs') {
-            this.validate(params.value, params.property, params.key);
+            this.validate(params.value, params.property, params.key, true);
         } else {
             return Validators[name](params);
         }

@@ -12,6 +12,26 @@ export default class Validators {
         }
     }
 
+    static minSize(params: ParamValidator): Errors {
+        if (!params.value || params.value.length < params.property) {
+            return {
+                message: `${params.key} it's smaller than ${params.property} <array>`,
+                type: 'minSize',
+                attribute: params.key
+            }
+        }
+    }
+
+    static maxSize(params: ParamValidator): Errors {
+        if (params.value && params.value.length > params.property) {
+            return {
+                message: `${params.key} it's greater than ${params.property} <array>`,
+                type: 'minSize',
+                attribute: params.key
+            }
+        }
+    }
+
     static minLength(params: ParamValidator): Errors {
         if (params.value && params.value.length < params.property) {
             return {
@@ -53,7 +73,6 @@ export default class Validators {
     }
 
     static type(params: ParamValidator): Errors {
-
         if (params.value) {
             if (params.property !== params.value.constructor) {
                 return {
