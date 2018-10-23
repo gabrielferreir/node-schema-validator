@@ -189,8 +189,8 @@ export default class Validators {
         }
     }
 
-    static Function(params: ParamValidator): void {
-        params.property(params.value)
+    static Function(params: ParamValidator): Errors {
+        return params.property(params);
     }
 
 }

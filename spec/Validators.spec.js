@@ -260,4 +260,41 @@ describe('Validators functions', () => {
 
     });
 
+    describe('Function', () => {
+
+        const isPar = function isPar(params) {
+            const response = params.value % 2 === 0;
+
+            if (!response)
+                return {
+                    message: `${params.key} not is a par number`,
+                    type: 'isPar',
+                    attribute: params.key
+                };
+        };
+
+        it('isParWithoutError', () => {
+
+            expect(Validators.default.Function({
+                key: 'number',
+                property: isPar,
+                value: 8
+            })).toEqual()
+        });
+
+        it('isParWithError', () => {
+
+            expect(Validators.default.Function({
+                key: 'number',
+                property: isPar,
+                value: 7
+            })).toEqual({
+                message: `number not is a par number`,
+                type: 'isPar',
+                attribute: 'number'
+            })
+        })
+
+    })
+
 });
