@@ -98,7 +98,7 @@ try {
 }
 ```
 
-## Response exemplo
+## Response example
 
 ```js
 [
